@@ -111,7 +111,7 @@ const Footer = () => {
             </Button>
           </form>
 
-          <p className="text-xs mt-6">
+          <p className="text-xs mt-6 text-center">
             Formu göndererek Küresel Hedefler'in
             <Link href="/terms-conditions" className="underline ml-1">Şartlar ve Koşullar</Link> ve
             <Link href="/privacy-policy" className="underline ml-1">Gizlilik Politikası</Link>'nı kabul etmiş olursunuz.
