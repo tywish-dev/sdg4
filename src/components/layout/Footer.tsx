@@ -1,9 +1,57 @@
+"use client"
+
 import Link from 'next/link';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
+import { useToast } from '@/hooks/use-toast';
+
+const newsletterSchema = z.object({
+  firstName: z.string().min(1, 'Ad alanı zorunludur'),
+  lastName: z.string().min(1, 'Soyad alanı zorunludur'),
+  email: z.string().email('Geçerli bir e-posta adresi giriniz').min(1, 'E-posta alanı zorunludur'),
+});
+
+type NewsletterForm = z.infer<typeof newsletterSchema>;
 
 const Footer = () => {
+  const { toast } = useToast();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<NewsletterForm>({
+    resolver: zodResolver(newsletterSchema),
+  });
+
+  const onSubmit = async (data: NewsletterForm) => {
+    try {
+      // Simulating an API call
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      // Show success message
+      toast({
+        variant: "success",
+        title: "Başarılı!",
+        description: "Bülten aboneliğiniz başarıyla tamamlandı.",
+      });
+
+      // Reset form
+      reset();
+    } catch (error) {
+      // Show error message
+      toast({
+        variant: "destructive",
+        title: "Hata!",
+        description: "Bir hata oluştu. Lütfen tekrar deneyiniz.",
+      });
+    }
+  };
+
   return (
     <footer className="bg-[#0077b8] text-white">
       <div className="container mx-auto px-4 py-12">
@@ -14,26 +62,54 @@ const Footer = () => {
             tüm dünyada gerçekleşen büyük fikirler ve yeni kampanyalar hakkında bilgi edinin.
           </p>
 
-          <div className="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto">
-            <Input
-              type="text"
-              placeholder="Ad"
-              className="bg-transparent border-b-2 border-white rounded-none focus:border-white text-white placeholder:text-white placeholder:opacity-100"
-            />
-            <Input
-              type="text"
-              placeholder="Soyad"
-              className="bg-transparent border-b-2 border-white rounded-none focus:border-white text-white placeholder:text-white placeholder:opacity-100"
-            />
-            <Input
-              type="email"
-              placeholder="E-posta"
-              className="bg-transparent border-b-2 border-white rounded-none focus:border-white text-white placeholder:text-white placeholder:opacity-100"
-            />
-            <Button className="bg-white text-[#0077b8] hover:bg-white/90">
-              KATIL
+          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto">
+            <div className="flex-1">
+              <Input
+                type="text"
+                placeholder="Ad"
+                className="bg-transparent border-b-2 border-white rounded-none focus:border-white text-white placeholder:text-white placeholder:opacity-100"
+                {...register('firstName')}
+                aria-invalid={errors.firstName ? "true" : "false"}
+              />
+              {errors.firstName && (
+                <p className="mt-1 text-sm text-red-300">{errors.firstName.message}</p>
+              )}
+            </div>
+
+            <div className="flex-1">
+              <Input
+                type="text"
+                placeholder="Soyad"
+                className="bg-transparent border-b-2 border-white rounded-none focus:border-white text-white placeholder:text-white placeholder:opacity-100"
+                {...register('lastName')}
+                aria-invalid={errors.lastName ? "true" : "false"}
+              />
+              {errors.lastName && (
+                <p className="mt-1 text-sm text-red-300">{errors.lastName.message}</p>
+              )}
+            </div>
+
+            <div className="flex-1">
+              <Input
+                type="email"
+                placeholder="E-posta"
+                className="bg-transparent border-b-2 border-white rounded-none focus:border-white text-white placeholder:text-white placeholder:opacity-100"
+                {...register('email')}
+                aria-invalid={errors.email ? "true" : "false"}
+              />
+              {errors.email && (
+                <p className="mt-1 text-sm text-red-300">{errors.email.message}</p>
+              )}
+            </div>
+
+            <Button
+              type="submit"
+              className="bg-white text-[#0077b8] hover:bg-white/90"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Gönderiliyor...' : 'KATIL'}
             </Button>
-          </div>
+          </form>
 
           <p className="text-xs mt-6">
             Formu göndererek Küresel Hedefler'in

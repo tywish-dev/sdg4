@@ -19,7 +19,7 @@ const TargetCard = ({ number, title, description, imageUrl }: TargetCardProps) =
             Hedef {number}
           </div>
         </div>
-        <h3 className="text-xl font-bold mb-2 uppercase">{title}</h3>
+        <h3 className="text-xl font-bold mb-2 uppercase tracking-[.075em] leading-relaxed">{title}</h3>
         <p className="text-gray-700">{description}</p>
       </div>
     </div>

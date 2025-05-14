@@ -1,20 +1,24 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { ToastProvider } from "@/components/providers/ToastProvider";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Küresel Hedefler - Nitelikli Eğitim",
-  description: "Kapsayıcı ve eşitlikçi nitelikli eğitimi sağlamak ve herkes için yaşam boyu öğrenme fırsatlarını teşvik etmek.",
+  title: "Küresel Hedefler",
+  description: "Küresel Hedefler, yoksulluğu ortadan kaldırmak, gezegenimizi korumak ve tüm insanların barış ve refah içinde yaşamasını sağlamak için evrensel eylem çağrısıdır.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en">
+    <html lang="tr">
       <head>
         <link
           rel="stylesheet"
@@ -43,11 +47,10 @@ export default function RootLayout({
           `}
         </style>
       </head>
-      <body>
+      <body className={inter.className}>
+        <ToastProvider />
         <Header />
-        <main>
-          {children}
-        </main>
+        <main className="min-h-screen pt-20">{children}</main>
         <Footer />
       </body>
     </html>

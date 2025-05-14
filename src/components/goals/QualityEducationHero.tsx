@@ -4,7 +4,7 @@ const QualityEducationHero = () => {
   return (
     <div className="relative">
       {/* Hero Background */}
-      <div className="bg-[#c31c2d] h-[calc(100vh-80px)] min-h-[500px] pt-24 flex items-center justify-center relative overflow-hidden">
+      <div className="bg-[#c31c2d] h-[calc(100vh)] min-h-[500px] pt-24 flex items-center justify-center relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col md:flex-row items-center justify-center">
             {/* Left Content */}
