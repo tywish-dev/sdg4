@@ -12,7 +12,7 @@ const Header = () => {
         <Link href="/goals/4-quality-education">
           <div className="flex items-center space-x-2">
             <img
-              src="https://ext.same-assets.com/3646222951/3601422302.svg"
+              src="https://www.kureselamaclar.org/wp-content/uploads/ka_logo.png"
               alt="The Global Goals"
               className="h-8 md:h-10"
             />
