@@ -9,24 +9,45 @@ const NewsPage = () => {
     const newsItems = [
         {
             id: 1,
-            title: 'BM Raporu: Kaliteli Eğitimde Küresel İlerleme Hızlandırılmalı',
-            date: '15 Mart 2023',
-            excerpt: 'Birleşmiş Milletler\'in yeni raporuna göre, dünya genelinde kaliteli eğitime erişim konusunda ilerleme kaydedilmesine rağmen, 2030 hedeflerine ulaşmak için çabaların hızlandırılması gerekiyor.',
-            content: 'Birleşmiş Milletler\'in yayınladığı son rapora göre, pandemi sonrası toparlanma sürecinde eğitim alanında ilerlemeler kaydedilse de, hala milyonlarca çocuk temel eğitim hizmetlerine erişemiyor. Rapor, özellikle düşük gelirli ülkelerde kız çocuklarının eğitime erişiminin artırılması ve dijital eğitim altyapısının güçlendirilmesi gerektiğini vurguluyor. UNESCO verilerine göre, dünya genelinde 258 milyon çocuk ve genç hala okula gitmiyor ve bu sayının azaltılması için uluslararası işbirliğinin artırılması çağrısında bulunuluyor.'
+            title: 'Sürdürülebilir küresel kalkınmanın anahtarı: Nitelikli Eğitim',
+            date: '2024',
+            excerpt: "Bu yazıda, nitelikli eğitimin yoksullukla mücadele, eşitsizliklerin azaltılması ve toplumsal cinsiyet eşitliği gibi konulardaki önemi vurgulanıyor. Küresel Okullar Programı'nın 105 ülkede 176.000 öğrenciye ulaştığı belirtiliyor.",
+            content: 'Ayrıca, Türkiye\'de Milli Eğitim Bakanlığı\'nın sürdürülebilirlik projelerine özel ilgi gösterdiği ifade ediliyor.'
         },
         {
             id: 2,
-            title: 'Yeni Eğitim Teknolojileri Zirvesi: Dijital Dönüşüm ve Kaliteli Eğitim',
-            date: '27 Şubat 2023',
-            excerpt: 'Geçtiğimiz hafta düzenlenen Eğitim Teknolojileri Zirvesi\'nde, Sürdürülebilir Kalkınma Hedefi 4 kapsamında dijital dönüşümün eğitim kalitesine etkileri tartışıldı.',
-            content: 'Global EdTech Zirvesi\'nde bir araya gelen eğitim ve teknoloji liderleri, yapay zeka, artırılmış gerçeklik ve diğer yenilikçi teknolojilerin eğitim kalitesini artırma potansiyelini değerlendirdi. Zirvede özellikle kırsal ve dezavantajlı bölgelerde yaşayan öğrencilere kaliteli eğitim sağlamak için teknolojinin nasıl kullanılabileceği konusunda önemli projeler sunuldu. Ayrıca, öğretmenlerin dijital yetkinliklerinin artırılması ve eğitim müfredatlarının 21. yüzyıl becerilerine uygun şekilde güncellenmesi konularında da önemli kararlar alındı.'
+            title: '4. İstanbul Eğitim Zirvesi\'nde yeni ve sürdürülebilir okul kültürü ele alındı',
+            date: '7 Aralık 2024',
+            excerpt: 'Türkiye Maarif Vakfı\'nın düzenlediği zirvede, eğitimde kapsayıcılık, sevgi temelli öğrenme ve yapay zekâ entegrasyonu gibi konular ele alındı.',
+            content: 'Tokyo Şehir Üniversitesi\'nden Prof. Dr. Takaharu Tezuka, duvarsız ve interaktif öğrenme alanlarının önemine dikkat çekti.'
         },
         {
             id: 3,
-            title: 'Öğretmen Eğitimi İçin Yeni Küresel Fon Başlatıldı',
-            date: '10 Ocak 2023',
-            excerpt: 'Kaliteli eğitim hedeflerine ulaşmak için kritik öneme sahip öğretmen eğitimine destek olmak amacıyla uluslararası bir fon oluşturuldu.',
-            content: 'Dünya Bankası, UNESCO ve çeşitli küresel vakıfların işbirliğiyle "Öğretmenler için Küresel Eğitim Fonu" kuruldu. Bu fon, özellikle gelişmekte olan ülkelerde öğretmen kalitesini artırmak, mesleki gelişim programları sunmak ve eğitimcilere destek sağlamak amacıyla 2 milyar dolarlık bir bütçeye sahip. Program kapsamında önümüzdeki beş yıl içinde 1 milyondan fazla öğretmenin eğitilmesi ve desteklenmesi hedefleniyor. Kaliteli eğitimin sağlanmasında öğretmenlerin rolünün kritik olduğunu vurgulayan yetkililer, bu girişimin SDG 4 hedeflerine ulaşmada önemli bir adım olduğunu belirtiyor.'
+            title: 'Sürdürülebilir Geleceğin Anahtarı: Nitelikli Eğitim',
+            date: '23 Temmuz 2024',
+            excerpt: 'Bu yazı, 2030 yılına kadar ulaşılması hedeflenen nitelikli eğitim amaçlarını detaylandırıyor.',
+            content: 'Hedefler arasında ücretsiz ve kaliteli ilköğretim, okul öncesi eğitime erişim ve teknik-mesleki eğitime eşit erişim gibi maddeler bulunuyor.'
+        },
+        {
+            id: 4,
+            title: 'Sürdürülebilir kalkınma hedefleri, yeşil kampüsler',
+            date: 'Eylül 2024',
+            excerpt: 'Bu yazı, üniversitelerin sürdürülebilir kalkınma hedeflerine katkı sağlamak için yeşil kampüsler oluşturma çabalarını ele alıyor.',
+            content: 'BM Yükseköğretim Sürdürülebilirlik Girişimi kapsamında, üniversitelerin sürdürülebilirlik performanslarını değerlendirmeleri teşvik ediliyor.'
+        },
+        {
+            id: 5,
+            title: 'Sürdürülebilir kalkınma için eğitime olan taahhüt güçlenmeli',
+            date: '2020',
+            excerpt: 'UNESCO\'nun katılımıyla gerçekleşen toplantıda, Sürdürülebilir Kalkınma için Eğitim (ESD) stratejileri tartışıldı.',
+            content: 'ESD\'nin, bireylere iklim değişikliği, biyoçeşitlilik kaybı ve eşitsizlik gibi küresel sorunlarla başa çıkma becerisi kazandırdığı vurgulandı.'
+        },
+        {
+            id: 6,
+            title: 'Öğretmenler 2030: Sürdürülebilir Kalkınma Amaçları ve İklim Seferberliği Eğitimi 4. döneme başlıyor',
+            date: 'Ocak 2025',
+            excerpt: 'Schneider Electric, UN SDSN Türkiye ve Boğaziçi Üniversitesi iş birliğiyle düzenlenen bu program, K12 öğretmenlerine sürdürülebilirlik konularında eğitim veriyor.',
+            content: 'Program, öğretmenlerin öğrencilerine çözüm odaklı düşünme becerileri kazandırmasını hedefliyor.'
         }
     ];
 

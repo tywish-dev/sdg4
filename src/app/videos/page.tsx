@@ -11,29 +11,52 @@ interface Video {
     description: string;
     thumbnail: string;
     videoId: string;
+    externalUrl?: string;
+    canEmbed?: boolean;
 }
 
 const videos: Video[] = [
     {
         id: '1',
-        title: 'Nitelikli Eğitim Nedir?',
-        description: 'Sürdürülebilir Kalkınma Hedefleri kapsamında nitelikli eğitimin önemi ve hedefleri.',
-        thumbnail: 'https://img.youtube.com/vi/xGQxZJwXK9Y/maxresdefault.jpg',
-        videoId: 'xGQxZJwXK9Y'
+        title: 'SDG 4 for Children – Quality Education | UNESCO',
+        description: 'UNESCO Brezilya tarafından hazırlanan bu 2 dakikalık animasyon, 7–11 yaş arası çocuklara sürdürülebilir kalkınma için eğitimin önemini anlatıyor. Video, insan hakları, toplumsal cinsiyet eşitliği ve kültürel çeşitlilik gibi konuları ele alarak çocuklara SDG 4\'ün hedeflerini tanıtıyor.',
+        thumbnail: 'https://img.youtube.com/vi/LIExX9St4oA/maxresdefault.jpg',
+        videoId: 'LIExX9St4oA',
+        canEmbed: true
     },
     {
         id: '2',
-        title: 'Eğitimde Fırsat Eşitliği',
-        description: 'Herkes için eşit eğitim fırsatları ve bunun sürdürülebilir kalkınmadaki rolü.',
-        thumbnail: 'https://img.youtube.com/vi/4HXyJmY--g8/maxresdefault.jpg',
-        videoId: '4HXyJmY--g8'
+        title: 'SDG 4 Quality Education – Deep Dive | Hippy In A Suit',
+        description: 'Bu derinlemesine inceleme videosu, SDG 4\'ün hedeflerini, karşılaşılan zorlukları ve eğitimde eşitliğin önemini ele alıyor. Video, kapsayıcı ve sürdürülebilir öğrenme ortamlarının oluşturulmasının gerekliliğini vurguluyor.',
+        thumbnail: 'https://img.youtube.com/vi/PjjWYHEuoKI/maxresdefault.jpg',
+        videoId: 'PjjWYHEuoKI',
+        canEmbed: true
     },
     {
         id: '3',
-        title: 'Dijital Çağda Eğitim',
-        description: 'Teknolojinin eğitimdeki rolü ve geleceğin öğrenme yöntemleri.',
-        thumbnail: 'https://img.youtube.com/vi/rG_ZiQZvEtE/maxresdefault.jpg',
-        videoId: 'rG_ZiQZvEtE'
+        title: 'Sustainable Development Goal 4: Quality Education | Academy 4SC',
+        description: 'Bu video, SDG 4\'ün on hedefini ve bu hedeflerin nasıl ölçüldüğünü açıklıyor. Ayrıca, eğitimdeki küresel eşitsizlikler ve bu eşitsizliklerin üstesinden gelmek için önerilen stratejiler hakkında bilgi veriyor.',
+        thumbnail: 'https://learn.academy4sc.org/wp-content/uploads/2021/03/SDG4-Quality-Education-1024x576.png',
+        videoId: '',
+        externalUrl: 'https://learn.academy4sc.org/video/sustainable-development-goal-4-quality-education/',
+        canEmbed: false
+    },
+    {
+        id: '4',
+        title: 'Anadolu’dan Yarınlara Sürdürülebilir Kalkınma Amaçları Eğitim Programı – Seminer 1',
+        description: 'Anadolu Grubu tarafından düzenlenen bu seminer, sürdürülebilir kalkınma kavramının gelişimini ve Birleşmiş Milletler\'in 2030 hedeflerini anlatıyor. Video, Türkiye\'deki eğitim programlarının SDG 4 ile nasıl uyumlu hale getirildiğini gösteriyor.',
+        thumbnail: 'https://s1.dmcdn.net/v/S4Qk91X4Qk9k4Qk9k/x720',
+        videoId: '',
+        externalUrl: 'https://www.dailymotion.com/embed/video/x84ebcx',
+        canEmbed: true
+    },
+    {
+        id: '5',
+        title: 'The Ten Targets of Sustainable Development Goal 4…with Elyx | UNESCO',
+        description: 'Birleşmiş Milletler\'in dijital elçisi Elyx ile hazırlanan bu animasyon, SDG 4\'ün on hedefini eğlenceli bir şekilde tanıtıyor. Video, kapsayıcı ve kaliteli eğitimin nasıl sağlanabileceğine dair bilgiler sunuyor.',
+        thumbnail: 'https://img.youtube.com/vi/V24JzUPlR44/maxresdefault.jpg',
+        videoId: 'V24JzUPlR44',
+        canEmbed: true
     }
 ];
 
@@ -78,15 +101,46 @@ export default function VideosPage() {
                             <div className="h-full flex flex-col">
                                 <h2 className="text-2xl font-bold mb-4">{video.title}</h2>
                                 <div className="flex-grow relative">
-                                    <iframe
-                                        src={`https://www.youtube.com/embed/${video.videoId}`}
-                                        title={video.title}
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowFullScreen
-                                        className="w-full h-full absolute inset-0 rounded-lg"
-                                    />
+                                    {video.videoId ? (
+                                        <iframe
+                                            src={`https://www.youtube.com/embed/${video.videoId}`}
+                                            title={video.title}
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                            className="w-full h-full absolute inset-0 rounded-lg"
+                                        />
+                                    ) : video.externalUrl && video.canEmbed ? (
+                                        <iframe
+                                            src={video.externalUrl}
+                                            title={video.title}
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                            className="w-full h-full absolute inset-0 rounded-lg"
+                                        />
+                                    ) : (
+                                        <div className="flex items-center justify-center h-full">
+                                            <a
+                                                href={video.externalUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-primary underline"
+                                            >
+                                                Videoyu yeni sekmede aç
+                                            </a>
+                                        </div>
+                                    )}
                                 </div>
                                 <p className="mt-4 text-gray-600">{video.description}</p>
+                                {video.externalUrl && (
+                                    <a
+                                        href={video.externalUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="mt-4 text-primary underline block"
+                                    >
+                                        Videoyu yeni sekmede aç
+                                    </a>
+                                )}
                             </div>
                         </SheetContent>
                     </Sheet>
